@@ -49,6 +49,9 @@ tool with no arguments it will print it's usage and exit.
 
 Additional (but somewhat incomplete at this time) information can be found in guide folder.
 
+The guide is written so that it can be processed by http://www.gitbook.io/ into a nice
+html version, but the Markdown files can also be read as is.
+
 ## Contact
 
 Bug, comments or questions? 
