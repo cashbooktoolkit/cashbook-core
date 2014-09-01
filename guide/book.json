@@ -1,0 +1,23 @@
+{
+    "title": "Cashbook Toolkit Implementation Guide",
+    "description": null,
+
+    "plugins": [],
+
+    "pluginsConfig": {
+    },
+
+    "links": {
+        "home": false,
+
+        "about": "http://cashbooktoolkit.com/",
+        "issues": null,
+        "contribute": null,
+
+        "sharing": {
+            "google": false,
+            "facebook": false,
+            "twitter": false
+        }
+    }
+}

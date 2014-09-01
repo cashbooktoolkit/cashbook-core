@@ -1,0 +1,3 @@
+
+cashbook: *.go
+	go build

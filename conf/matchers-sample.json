@@ -1,0 +1,31 @@
+[
+    {"TypeName": "StartsWithMatcher", "GroupType": "Retail", "Matching": "POS Purchase"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Retail", "Matching": "POS Pre-Auth Completion"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Retail", "Matching": "POS PreAuth Completion"},
+    
+    {"TypeName": "StartsWithMatcher", "GroupType": "Retail", "Matching": "POS return (Credit)"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Retail", "Matching": "Reversal POS purchase"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Retail", "Matching": "POS Adjustment (Credit)"},
+
+    {"TypeName": "StartsWithMatcher", "GroupType": "Bills", "Matching": "Internet Banking Bill Payment"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Bills", "Matching": "Pre-Authorized Debit"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Bills", "Matching": "PreAuthorized Debit"},
+
+    {"TypeName": "StartsWithMatcher", "GroupType": "Bills", "Matching": "Pre-Authorized Return"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Bills", "Matching": "PreAuthorized Return"},
+
+    {"TypeName": "StartsWithMatcher", "GroupType": "Loans", "Matching": "Loan Payment", "DontStripNumbers": true},
+
+    {"TypeName": "StartsWithMatcher", "GroupType": "Cash", "Matching": "Cash Withdrawal", "GroupLabel": "Cash"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Cash", "Matching": "MTL ATM Withdrawal", "GroupLabel": "Cash"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Cash", "Matching": "ABM Withdrawal", "GroupLabel": "Cash"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Cash", "Matching": "Exchange Wth", "GroupLabel": "Cash"},
+
+    {"TypeName": "StartsWithMatcher", "GroupType": "Deposits", "Matching": "Auto Transfer Payment from", "DontStripNumbers": true},
+
+    {"TypeName": "StartsWithMatcher", "GroupType": "Payroll", "Matching": "Payroll Deposit"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Deposits", "Matching": "Cash Deposit", "GroupLabel": "Cash"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Deposits", "Matching": "ATM Deposit", "GroupLabel": "Cash"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Deposits", "Matching": "Cheque Deposit", "GroupLabel": "Cash"},
+    {"TypeName": "StartsWithMatcher", "GroupType": "Deposits", "Matching": "EFT Deposit"}
+]
