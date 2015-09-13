@@ -1,0 +1,64 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "bitbucket.org/liamstask/goose/lib/goose",
+			"repository": "https://bitbucket.org/liamstask/goose",
+			"revision": "8488cc47d90c8a502b1c41a462a6d9cc8ee0a895",
+			"branch": "master",
+			"path": "/lib/goose"
+		},
+		{
+			"importpath": "github.com/coopernurse/gorp",
+			"repository": "https://github.com/coopernurse/gorp",
+			"revision": "9cd2b5ef5b82fde4e7c51776ac3f94398b8af076",
+			"branch": "develop"
+		},
+		{
+			"importpath": "github.com/go-sql-driver/mysql",
+			"repository": "https://github.com/go-sql-driver/mysql",
+			"revision": "527bcd55aab2e53314f1a150922560174b493034",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/kylelemons/go-gypsy/yaml",
+			"repository": "https://github.com/kylelemons/go-gypsy",
+			"revision": "42fc2c7ee9b8bd0ff636cd2d7a8c0a49491044c5",
+			"branch": "master",
+			"path": "/yaml"
+		},
+		{
+			"importpath": "github.com/lib/pq",
+			"repository": "https://github.com/lib/pq",
+			"revision": "b269bd035a727d6c1081f76e7a239a1b00674c40",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/mattn/go-sqlite3",
+			"repository": "https://github.com/mattn/go-sqlite3",
+			"revision": "3b3f1d01b2696af5501697c35629048c227586ab",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/ziutek/mymysql/godrv",
+			"repository": "https://github.com/ziutek/mymysql",
+			"revision": "b559dddd7e2a2ce596f2058bc399805102719eac",
+			"branch": "master",
+			"path": "/godrv"
+		},
+		{
+			"importpath": "github.com/ziutek/mymysql/mysql",
+			"repository": "https://github.com/ziutek/mymysql",
+			"revision": "b559dddd7e2a2ce596f2058bc399805102719eac",
+			"branch": "master",
+			"path": "/mysql"
+		},
+		{
+			"importpath": "github.com/ziutek/mymysql/native",
+			"repository": "https://github.com/ziutek/mymysql",
+			"revision": "b559dddd7e2a2ce596f2058bc399805102719eac",
+			"branch": "master",
+			"path": "/native"
+		}
+	]
+}
