@@ -17,25 +17,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Cashbook is a program to analyse a series of formatted financial 
+// Cashbook is a program to analyse a series of formatted financial
 // transactions into interesting sets for later reporting.
 package main
 
 import (
 	"database/sql"
-	"io"
 	"flag"
 	"fmt"
-    "log"
+	"io"
+	"log"
 	"os"
 	"strings"
 	"text/template"
-    "time"
+	"time"
 	"unicode"
-    "unicode/utf8"
+	"unicode/utf8"
 
 	"bitbucket.org/liamstask/goose/lib/goose"
-    "github.com/coopernurse/gorp"
+	"github.com/coopernurse/gorp"
 	_ "github.com/lib/pq"
 )
 
@@ -43,15 +43,16 @@ import (
 var flagPath = flag.String("path", "conf", "folder containing config files")
 var flagEnv = flag.String("env", "development", "which DB environment to use")
 var flagMatchers = flag.String("matchers", "conf/matchers.json", "file containing the matcher defs")
+var flagPgSchema = flag.String("pgschema", "", "which postgres-schema to migrate (default = none)")
 
 // helper to create a DBConf from the given flags
 func dbConfFromFlags() (dbconf *goose.DBConf, err error) {
-	return goose.NewDBConf(*flagPath, *flagEnv)
+	return goose.NewDBConf(*flagPath, *flagEnv, *flagPgSchema)
 }
 
 const Version = "2014.9"
 
-var commands= []*Command{
+var commands = []*Command{
 	importCsvCmd,
 	reportCmd,
 	upCmd,
@@ -64,13 +65,13 @@ func main() {
 
 	flag.Usage = usage
 	flag.Parse()
-	
+
 	args := flag.Args()
 	if len(args) == 0 || args[0] == "-h" {
 		flag.Usage()
 		return
 	}
-	
+
 	if args[0] == "help" {
 		help(args[1:])
 		return
@@ -80,7 +81,6 @@ func main() {
 		fmt.Printf("Cashbook Version: %s \n", Version)
 		return
 	}
-	
 
 	var cmd *Command
 	name := args[0]
@@ -90,7 +90,7 @@ func main() {
 			break
 		}
 	}
-	
+
 	if cmd == nil {
 		fmt.Printf("error: unknown command %q\n", name)
 		flag.Usage()
@@ -107,28 +107,28 @@ func initDb() *gorp.DbMap {
 		log.Fatal(err)
 	}
 
-	//We're going to insist on Postgres here, the open string will come from the 
+	//We're going to insist on Postgres here, the open string will come from the
 	// dbConf object.
 	db, err := sql.Open("postgres", conf.Driver.OpenStr)
-    checkErr(err, "sql.Open failed")
+	checkErr(err, "sql.Open failed")
 
-    // construct a gorp DbMap
-    dbmap := &gorp.DbMap{Db: db, Dialect: gorp.PostgresDialect{}}
+	// construct a gorp DbMap
+	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.PostgresDialect{}}
 
 	// -- Populate the dbmap with table definitions.
 
-    // add a table, setting the table name to 'posts' and
-    // specifying that the Id property is an auto incrementing PK
-    dbmap.AddTableWithName(Txn{}, "txns").SetKeys(true, "Id")
-    dbmap.AddTableWithName(TxnGroup{}, "txn_groups").SetKeys(true, "Id")
+	// add a table, setting the table name to 'posts' and
+	// specifying that the Id property is an auto incrementing PK
+	dbmap.AddTableWithName(Txn{}, "txns").SetKeys(true, "Id")
+	dbmap.AddTableWithName(TxnGroup{}, "txn_groups").SetKeys(true, "Id")
 
-    return dbmap
+	return dbmap
 }
 
 func checkErr(err error, msg string) {
-    if err != nil {
-        log.Fatalln(msg, err)
-    }
+	if err != nil {
+		log.Fatalln(msg, err)
+	}
 }
 
 func usage() {
@@ -187,7 +187,7 @@ func help(args []string) {
 	}
 
 	arg := args[0]
-	
+
 	for _, cmd := range commands {
 		if cmd.Name == arg {
 			fmt.Printf("usage: cashbook %s", cmd.Usage)
@@ -200,13 +200,12 @@ func help(args []string) {
 			return
 		}
 	}
-	
+
 	fmt.Fprintf(os.Stderr, "Unknown help topic %#q.  Run 'cashbook help'.\n", arg)
 	os.Exit(2) // failed at 'go help cmd'
 }
 
-
 func timeTrack(start time.Time, name string) {
-    elapsed := time.Since(start)
-    log.Printf("%s took %s", name, elapsed)
+	elapsed := time.Since(start)
+	log.Printf("%s took %s", name, elapsed)
 }
